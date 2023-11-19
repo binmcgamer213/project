@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem Chi Tiết Sản Phẩm Đồ Gỗ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/index2.html">Thịnh Phát</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index2.html">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trangxemchitiet/giohang.html">Giỏ Hàng </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lienhe.html">Liên Hệ</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-dark text-white text-center py-5">
+        <h1>Chi Tiết Sản Phẩm Đồ Gỗ</h1>
+    </header>
+    <a class="quaylai" href="/index2.html"><img src="/imgproject/istockphoto-953455676-170667a-removebg-preview (1).png" alt="123"></a>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="/img/ban1.jpg" class="d-block w-100" alt="mẫu 1">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/img/ban2.jpg" class="d-block w-100" alt="mẫu 2">
+                      </div>
+                      
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Bàn Gỗ</h2>     
+                <p>Giá: $250.00</p>
+                <p>Thương hiệu: Thịnh Phát</p>
+                <div class="form-group">
+                    <label for="model">Chọn Mẫu Sản Phẩm:</label>
+                    <select class="form-control" id="model">
+                        <option>Mẫu 1</option>
+                        <option>Mẫu 2</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Số lượng:</label>
+                    <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng">
+                </div>
+                <button id="addToCart" class="btn btn-primary my-3">Thêm vào Giỏ Hàng</button>
+                <a href="giohang.html" class="btn btn-secondary">Xem Giỏ Hàng</a>
+            </div>
+        </div>
+    </div>
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      </ul>
+      <p class="text-center text-muted">© 2022 Company, Inc</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('addToCart').addEventListener('click', function() {
+            var quantity = parseInt(document.getElementById('quantity').value);
+            var productPrice = 250.00; // Thay đổi giá sản phẩm tại đây
+            var total = quantity * productPrice;
+            
+            // Lưu sản phẩm vào giỏ hàng (sử dụng localStorage)
+            var product = {
+                name: "Sản phẩm đồ gỗ",
+                description: "Mô tả sản phẩm đồ gỗ",
+                price: productPrice,
+                quantity: quantity
+            };
+            
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            alert('Sản phẩm đã được thêm vào giỏ hàng.\nTổng cộng: $' + total);
+        });
+    </script>
+</body>
+</html>
